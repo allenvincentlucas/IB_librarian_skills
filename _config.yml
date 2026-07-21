@@ -4,7 +4,7 @@ description: >-
   librarian needs across MYP and DP — professional development plan, gap
   research, and citation record.
 author: Allen Lucas
-baseurl: "/ib-librarian-skills"
+baseurl: "/IB_librarian_skills"
 url: "https://allenvincentlucas.github.io"
 
 markdown: kramdown
