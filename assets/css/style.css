@@ -1,0 +1,285 @@
+/* ---------------------------------------------------------
+   IB Librarian Skills — "Reading Room" theme (top-nav version)
+   Palette: linen paper, deep forest-green ink, brass accent
+   Type: Source Serif 4 (display) / Public Sans (body) / IBM Plex Mono (data)
+   Layout: top navigation bar with dropdown menus, no sidebar
+--------------------------------------------------------- */
+
+:root {
+  --paper: #EFEDE3;
+  --paper-raised: #F8F7F1;
+  --ink: #201F19;
+  --ink-soft: #55534A;
+  --green: #2F4B3C;
+  --green-deep: #1D2F26;
+  --brass: #8A6D3B;
+  --brass-bright: #B08B3F;
+  --rule: #D9D4C2;
+  --rule-strong: #C3BCA4;
+  --max-w: 840px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Public Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Source Serif 4", Georgia, serif;
+  color: var(--green-deep);
+  line-height: 1.25;
+}
+h1 { font-size: 2.15rem; font-weight: 600; margin: 0 0 0.4em; }
+h2 { font-size: 1.5rem; font-weight: 600; margin: 1.9em 0 0.6em; padding-top: 0.15em; border-top: 1px solid var(--rule); }
+h2:first-of-type { border-top: none; padding-top: 0; }
+h3 { font-size: 1.15rem; font-weight: 600; margin: 1.5em 0 0.5em; }
+
+a { color: var(--green); text-decoration-color: var(--rule-strong); text-underline-offset: 3px; }
+a:hover { color: var(--brass-bright); }
+
+code, kbd, pre, .mono { font-family: "IBM Plex Mono", monospace; }
+
+.skip-link {
+  position: absolute; left: -999px; top: 0;
+  background: var(--green-deep); color: #fff; padding: 0.6em 1em; z-index: 100;
+}
+.skip-link:focus { left: 1em; top: 1em; }
+a:focus-visible, summary:focus-visible, .dropdown-toggle:focus-visible {
+  outline: 2px solid var(--brass-bright); outline-offset: 2px;
+}
+
+/* ---------- Top navigation bar ---------- */
+.topbar {
+  background: var(--green-deep);
+  border-bottom: 4px solid var(--brass);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.topbar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.7rem 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  text-decoration: none;
+  color: #fff;
+  font-family: "Source Serif 4", serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  flex: none;
+}
+.brand:hover { color: #fff; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 5px;
+  background: var(--brass);
+  display: inline-flex; align-items: center; justify-content: center;
+  flex: none;
+}
+.brand-mark svg { width: 15px; height: 15px; }
+
+/* Hamburger toggle (checkbox hack, no JS) */
+.nav-toggle-check { display: none; }
+.nav-toggle-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-left: auto;
+}
+.nav-toggle-btn span {
+  display: block;
+  height: 2px;
+  background: #fff;
+  border-radius: 1px;
+}
+
+.topnav {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem 0.2rem;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.topnav > a {
+  color: #D8D5C8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.5em 0.7em;
+  border-radius: 3px;
+  border-bottom: 2px solid transparent;
+}
+.topnav > a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+.topnav > a.active { color: #fff; border-bottom-color: var(--brass-bright); font-weight: 600; }
+
+/* Dropdowns via <details>/<summary> — click/tap to open, works without JS */
+.dropdown { position: relative; }
+.dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  color: #D8D5C8;
+  font-family: "Public Sans", sans-serif;
+  font-size: 0.9rem;
+  padding: 0.5em 0.7em;
+  border-radius: 3px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.dropdown-toggle::-webkit-details-marker { display: none; }
+.dropdown-toggle:hover { color: #fff; background: rgba(255,255,255,0.06); }
+.dropdown[open] .dropdown-toggle { color: #fff; background: rgba(255,255,255,0.09); }
+.caret { font-size: 0.7em; }
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  box-shadow: 0 10px 24px rgba(20, 30, 25, 0.18);
+  padding: 0.5rem;
+  min-width: 260px;
+  z-index: 60;
+}
+.dropdown-menu a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.45em 0.6em;
+  border-radius: 4px;
+}
+.dropdown-menu a:hover { background: var(--paper); color: var(--green); }
+
+.nav-tag {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.66rem;
+  color: var(--brass);
+  background: rgba(138, 109, 59, 0.12);
+  border-radius: 2px;
+  padding: 0.05em 0.4em;
+  margin-right: 0.5em;
+}
+
+/* ---------- Content column ---------- */
+.content-col {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 2.6rem 1.6rem 5rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brass);
+  background: rgba(138, 109, 59, 0.12);
+  padding: 0.2em 0.6em;
+  border-radius: 3px;
+  margin-bottom: 0.7em;
+}
+
+.lede { font-size: 1.08rem; color: var(--ink-soft); max-width: 62ch; }
+
+blockquote {
+  margin: 1.3em 0;
+  padding: 0.2em 1.2em;
+  border-left: 3px solid var(--brass);
+  color: var(--ink-soft);
+  background: var(--paper-raised);
+}
+
+table { border-collapse: collapse; width: 100%; margin: 1.4em 0; font-size: 0.92rem; }
+th, td { border: 1px solid var(--rule); padding: 0.55em 0.7em; text-align: left; vertical-align: top; }
+th { background: var(--paper-raised); font-family: "Source Serif 4", serif; }
+
+hr { border: none; border-top: 1px solid var(--rule); margin: 2.2em 0; }
+
+.related-notes {
+  margin-top: 1.8rem;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  background: var(--paper-raised);
+  border-left: 3px solid var(--brass);
+  padding: 0.7em 1em;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.4rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.back-link:hover { color: var(--brass-bright); }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+/* ---------- Responsive: collapse top nav into a mobile menu ---------- */
+@media (max-width: 880px) {
+  .nav-toggle-btn { display: flex; }
+
+  .topnav {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    order: 3;
+    padding-top: 0.6rem;
+  }
+  .nav-toggle-check:checked ~ .topnav { display: flex; }
+
+  .topnav > a { padding: 0.7em 0.4em; }
+  .dropdown { width: 100%; }
+  .dropdown-toggle { width: 100%; justify-content: space-between; padding: 0.7em 0.4em; }
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 0 0 0 1rem;
+    min-width: 0;
+  }
+  .dropdown-menu a { color: #D8D5C8; }
+  .dropdown-menu a:hover { background: rgba(255,255,255,0.06); color: #fff; }
+
+  .content-col { padding: 2rem 1.1rem 3rem; }
+  h1 { font-size: 1.7rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; }
+}
