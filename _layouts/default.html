@@ -36,36 +36,22 @@
       </label>
 
       <nav class="topnav" aria-label="Primary">
-        <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Overview</a>
-        <a href="{{ '/pd-plan/' | relative_url }}" {% if page.url == '/pd-plan/' %}class="active"{% endif %}>PD Plan</a>
-        <a href="{{ '/skills-overview/' | relative_url }}" {% if page.url contains 'skills-overview' %}class="active"{% endif %}>Skills Overview</a>
-        <a href="{{ '/scaffolding-matrix/' | relative_url }}" {% if page.url contains 'scaffolding-matrix' %}class="active"{% endif %}>Scaffolding Matrix</a>
+        <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
 
         <details class="dropdown">
-          <summary class="dropdown-toggle">Gap Research <span class="caret">▾</span></summary>
+          <summary class="dropdown-toggle">Modules <span class="caret">▾</span></summary>
           <div class="dropdown-menu">
-            <a href="{{ '/gaps/01-generative-ai-academic-integrity/' | relative_url }}"><span class="nav-tag">01</span>Generative AI &amp; Academic Integrity</a>
-            <a href="{{ '/gaps/02-student-life-pastoral-care/' | relative_url }}"><span class="nav-tag">02</span>Student Life &amp; Pastoral Care</a>
-            <a href="{{ '/gaps/03-pyp-early-literacy-science-of-reading/' | relative_url }}"><span class="nav-tag">03</span>PYP Early Literacy</a>
-            <a href="{{ '/gaps/04-multilingualism-ssst-coordination/' | relative_url }}"><span class="nav-tag">04</span>Multilingualism &amp; SSST</a>
-            <a href="{{ '/gaps/05-may-2027-extended-essay-changes/' | relative_url }}"><span class="nav-tag">05</span>EE 2027 Changes</a>
-            <a href="{{ '/gaps/06-stem-makerspace-research-tools/' | relative_url }}"><span class="nav-tag">06</span>STEM &amp; Makerspace</a>
-            <a href="{{ '/gaps/07-iste-aasl-frameworks/' | relative_url }}"><span class="nav-tag">07</span>ISTE / AASL Frameworks</a>
-            <a href="{{ '/gaps/08-follett-destiny-administration/' | relative_url }}"><span class="nav-tag">08</span>Follett Destiny Admin</a>
-            <a href="{{ '/gaps/09-copyright-fair-use/' | relative_url }}"><span class="nav-tag">09</span>Copyright &amp; Fair Use</a>
-            <a href="{{ '/gaps/10-accreditation-frameworks/' | relative_url }}"><span class="nav-tag">10</span>Accreditation Frameworks</a>
-            <a href="{{ '/gaps/11-ai-librarian-workflow/' | relative_url }}"><span class="nav-tag">11</span>AI Librarian Workflow</a>
+            <a href="{{ '/modules/01-ib-frameworks-pedagogy/' | relative_url }}"><span class="nav-tag">01</span>IB Frameworks &amp; Pedagogy</a>
+            <a href="{{ '/modules/02-research-extended-essay/' | relative_url }}"><span class="nav-tag">02</span>Research &amp; The Extended Essay</a>
+            <a href="{{ '/modules/03-academic-integrity-ai/' | relative_url }}"><span class="nav-tag">03</span>Academic Integrity &amp; AI</a>
+            <a href="{{ '/modules/04-student-life-pastoral-care/' | relative_url }}"><span class="nav-tag">04</span>Student Life &amp; Pastoral Care</a>
+            <a href="{{ '/modules/05-collection-development-literacies/' | relative_url }}"><span class="nav-tag">05</span>Collection Development</a>
+            <a href="{{ '/modules/06-systems-makerspaces-pd-timeline/' | relative_url }}"><span class="nav-tag">06</span>Systems, Makerspaces &amp; PD Timeline</a>
+            <a href="{{ '/modules/07-systems-emerging-practice/' | relative_url }}"><span class="nav-tag">07</span>Systems &amp; Emerging Practice</a>
           </div>
         </details>
 
-        <details class="dropdown">
-          <summary class="dropdown-toggle">Citations <span class="caret">▾</span></summary>
-          <div class="dropdown-menu">
-            <a href="{{ '/citations/' | relative_url }}">Citations Overview</a>
-            <a href="{{ '/citations/pd-plan/' | relative_url }}">PD Plan — Works Cited</a>
-            <a href="{{ '/citations/gap-research/' | relative_url }}">Gap Research — Works Cited</a>
-          </div>
-        </details>
+        <a href="{{ '/citations/' | relative_url }}" {% if page.url == '/citations/' %}class="active"{% endif %}>Citations</a>
       </nav>
     </div>
   </header>
