@@ -1,0 +1,26 @@
+title: IB Librarian Skills for Academic Success
+description: >-
+  A working reference on the skills, frameworks, and research an IB secondary
+  librarian needs across MYP and DP — professional development plan, gap
+  research, and citation record.
+author: Allen Lucas
+baseurl: "/ib-librarian-skills"
+url: "https://allenvincentlucas.github.io"
+
+markdown: kramdown
+kramdown:
+  parse_block_html: true
+
+plugins:
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
